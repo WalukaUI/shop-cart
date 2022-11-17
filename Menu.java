@@ -51,9 +51,13 @@ public class Menu {
             }
             
             
-        }else if(answer == 5){
-            System.out.println();
+        }else if(answer == 4){
+            cart.showDetails();
+            printMenu();
         
+        }else if(answer == 5){
+            cart.checkout();
+            break;
         }else{
             printMenu();
         }
