@@ -5,19 +5,31 @@ public class Cart{
     private double total;
     private double taxRate;
 
+    public Cart() {
+    }
+
     public void additem(Product p){
-    
-    
+        
+        items.add(p);
+        System.out.println("item added successfully");
     }
     
     public void showDetails(){
-    
-        
+    if(items.size() > 0){
+
+        for (Product i : items) {
+            System.out.println(i);
+        }
     }
-    
+
+    }
     public boolean checkout(){
-    
-    return true;
+    if(total != 0){
+        return true;
+    }else{
+        return false;
+    }
+   
     }
 
 }

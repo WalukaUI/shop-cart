@@ -20,9 +20,9 @@ public class ShopRunner {
                 )
             );
         Scanner catchInput = new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-        //Cart cart=new Cart();
-        Shop shop =new Shop(product,"T-Shirt Mart");
-        Menu menu = new Menu(catchInput, shop);
+        Cart cart=new Cart();
+        Shop shop =new Shop(product,cart,"T-Shirt Mart");
+        Menu menu = new Menu(catchInput, shop,cart);
         menu.greet();
         menu.executeMenu();
         

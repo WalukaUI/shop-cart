@@ -5,15 +5,16 @@ public class Shop{
     private String name;
     private Cart cart;
 
-   public Shop(ArrayList<Product> products,String name)  {
+   public Shop(ArrayList<Product> products, Cart cart,String name)  {
          this.products = products;
          this.name=name;
+         this.cart=cart;
    }
 
      public String getname(){
       return name;
    }
-   
+
    //Print product list
 
    public void printProducts(){
@@ -34,9 +35,15 @@ public class Shop{
      return -1;
    }
 
-     //Find product by name
+     //Find product by ID
 
      public Product findProductbyId(int idNum){
-            return 1;
+      for(Product p : products){
+        int ids=p.getID();
+        if(idNum == ids){;
+          return p;
+         }   
+      } 
+      return null;  
      }
 }
