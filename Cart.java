@@ -3,16 +3,17 @@ import java.util.ArrayList;
 public class Cart{
     private ArrayList<Product> items;
     private double total;
-    private double taxRate;
+    private double taxRate = 10;
 
     public Cart() {
         this.items= new ArrayList<>();
     }
 
-    public void additem(Product p){
-        
+    public void additem(Product p){ 
         items.add(p);
         System.out.println("item added successfully");
+        double pr=p.getPrice();
+        total=total+pr;
     }
     
     public void showDetails(){
@@ -31,12 +32,14 @@ public class Cart{
     }
 
     }
-    public boolean checkout(){
-        System.out.println("checked out");
+    public void checkout(){
+
     if(total != 0){
-        return true;
+        System.out.println("checked out");
+        System.out.println(String.format("total is %.2f",total));
+        System.out.println(String.format("total with tax is %.2f",total +(total * (taxRate/100))));
     }else{
-        return false;
+        System.out.println("your cart is empty. Please add something to checked out");
     }
    
     }
