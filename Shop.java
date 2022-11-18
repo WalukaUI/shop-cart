@@ -18,32 +18,48 @@ public class Shop{
    //Print product list
 
    public void printProducts(){
-     for (Product p : products) {
-        System.out.println("ID "+(p.getID())+": "+(p.getName()) +" - $"+(p.getPrice()));
-      }
+    System.out.println("--Products--");
+    for (Product p : products) {
+      System.out.println("ID "+(p.getID())+": "+(p.getName()) +" - $"+(p.getPrice()));
+    }
+  }
 
-   }
     //Find product by name
 
-   public int findProduct(String searchText){
-    for(Product p : products){
-       String name=p.getName();
-       if(name.equals(searchText)){
-        return p.getID();
-       }
-     }              
-     return -1;
+    public int findProduct(String searchText){
+      for(Product p : products){
+           String name=p.getName();
+        if(name.equals(searchText)){
+           return p.getID();
+        }  
+    }                  
+    return -1;
    }
+     
 
      //Find product by ID
 
-     public Product findProductbyId(int idNum){
+     public void addToCart(int answer){
+      boolean added=false;
+      String ittName="";
       for(Product p : products){
-        int ids=p.getID();
-        if(idNum == ids){;
-          return p;
-         }   
-      } 
-      return null;  
-     }
+      int idI=p.getID();
+      if(idI == answer){
+         added=true;
+         cart.additem(p);
+         ittName=p.getName();
+       }
+      }
+     String ifAdded=String.format("%s has been added to your cart.",ittName);
+     System.out.println(added?ifAdded:"That item ID is invalid and could not be added to the cart.");
+    }
+
+         //show details
+         public void showCartDetails(){
+          cart.showDetails();
+         }
+         public boolean cartCheckout(){
+          return cart.checkout();
+         }
+
 }

@@ -4,16 +4,14 @@ public class Menu {
     private String[] menuOptions = {"Exit", "List Products","Buy Product", "Find Product", "Show Cart" , "Checkout"};
     private Scanner scanner;
     private Shop shop;
-    private Cart cart;
+
     
 
 
-    public Menu(Scanner scanner, Shop shop,Cart cart) {
+    public Menu(Scanner scanner, Shop shop) {
        this.scanner = scanner;
        this.shop = shop;
-       this.cart=cart;
     }
-
 
 
     public void executeMenu() {
@@ -29,43 +27,30 @@ public class Menu {
             String itemToFind= getNextStringLineFromUser();
             int itemNum= shop.findProduct(itemToFind);
                 if(itemNum == -1){
-                  String outp=String.format("The product %s was not found. ", itemToFind);
-                  System.out.println(outp);
+                  System.out.println("That product was not found.");
                 }else{
                   System.out.println( itemToFind+" was found and its product id is "+itemNum);
                 }
             printMenu();
         }else if(answer == 2){
-
             System.out.println("Please enter the ID of the product you would like to purchase:");
-            int itemToFnd= getNextIntFromUser();
-            Product recivedProduct=shop.findProductbyId(itemToFnd);
-            if(recivedProduct == null){
-                System.out.println("not found");
-                printMenu();
-            }else{
-                cart.additem(recivedProduct);
-                String last=String.format("has been added to your cart %d.",itemToFnd);
-                System.out.println(last);
-                printMenu();
-            }
-            
+            int itemfromCustomer=getNextIntFromUser();
+            shop.addToCart(itemfromCustomer);
+            printMenu();
             
         }else if(answer == 4){
-            cart.showDetails();
-            printMenu();
-        
+           shop.showCartDetails();  
+           printMenu();
         }else if(answer == 5){
-            cart.checkout();
-            break;
+           shop.cartCheckout();
+           printMenu();
         }else{
             printMenu();
         }
-        answer= getNextIntFromUser();
-             
-
+       answer= getNextIntFromUser();
+        
        }
-       exit();
+     exit();
     }
     
 
