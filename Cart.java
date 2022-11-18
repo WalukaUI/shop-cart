@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Cart{
     private ArrayList<Product> items;
     private double total;
-    private double taxRate = 10;
+    private double taxRate = 0.1;
 
     public Cart() {
         this.items= new ArrayList<>();
@@ -34,17 +34,11 @@ public class Cart{
          detailsSb.append(String.format("%n"));
            
          detailsSb.append(
-                String.format(
-                    "%s: $%.2f%n",
-                    "Pre-Tax Total",
-                    total
-                )
-            );                 
+                String.format("Pre-Tax Total: $%.2f%n",total));                 
                           
           detailsSb.append(
                 String.format(
-                    "%s (%.2f%% Tax): $%.2f%n",
-                    "Post-Tax Total",
+                    "Post-Tax Total (%.2f%% Tax): $%.2f%n",
                     taxRate * 100,
                     total * (1 + taxRate)
                 )
