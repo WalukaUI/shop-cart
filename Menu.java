@@ -7,13 +7,13 @@ public class Menu {
 
     
 
-
+//Constructor
     public Menu(Scanner scanner, Shop shop) {
        this.scanner = scanner;
        this.shop = shop;
     }
 
-
+//Execute the menu
     public void executeMenu() {
         printMenu();
         int answer= getNextIntFromUser();
@@ -54,14 +54,14 @@ public class Menu {
     }
     
 
-
+//Greet customer with name
     public void greet() {
         System.out.println("Hello. Please enter your name:");
         String name = scanner.nextLine();
         System.out.println("Welcome " + name + " to " + "T-Shirt Mart");
     }
 
-
+//Print menu
     private void printMenu() {
         System.out.println();
         System.out.println("--Main Menu--");
@@ -74,27 +74,26 @@ public class Menu {
         }
     }
 
-    // /**
-    //  * Prints an exit statement and closes the scanner object.
-    //  */
+//* Prints an exit statement and closes the scanner object.
+
     private void exit() {
         System.out.println("Exiting now. Goodbye.");
         scanner.close();
     }
 
-    /**
-     * Collects next user-entered int.
-     * @return integer value denoting the user selection
-     */
+/**
+* Collects next user-entered int.
+* @return integer value denoting the user selection
+*/
     private int getNextIntFromUser() {
         return scanner.nextInt();
     }
 
-    /**
-     * Skips a line of empty input from the scanner's input stream
-     * and then returns the next available line.
-     * @return string representing the line of input typed by the user
-     */
+/**
+* Skips a line of empty input from the scanner's input stream
+* and then returns the next available line.
+* @return string representing the line of input typed by the user
+*/
     private String getNextStringLineFromUser() {
         scanner.nextLine();
         return scanner.nextLine();

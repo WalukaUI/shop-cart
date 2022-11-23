@@ -8,12 +8,12 @@ public class Cart{
     public Cart() {
         this.items= new ArrayList<>();
     }
-
+//Add items to cart
     public void additem(Product p){
         items.add(p);
         total = total + (p.getPrice());
     }
-    
+//Show cart details   
     public void showDetails(){
         StringBuilder detailsSb = new StringBuilder();
         int count=items.size();
@@ -49,7 +49,8 @@ public class Cart{
         System.out.println("The cart is empty. Please add at least one product to see it in the cart.");    
         }
         }
-        
+
+//Checkout cart
         public boolean checkout(){
             int count=items.size();    
                 if(count > 0){

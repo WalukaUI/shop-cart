@@ -25,11 +25,6 @@ public class ShopRunner {
         Menu menu = new Menu(catchInput, shop);
         menu.greet();
         menu.executeMenu();
-        
-
-        //menu.formatPriceLine("https://labs.vocareum.com/main/main.php?m");
-
-
-}
+ }
 }
 

@@ -15,7 +15,7 @@ public class Shop{
       return name;
    }
 
-   //Print product list
+  //Print product list
 
    public void printProducts(){
     System.out.println("--Products--");
@@ -24,7 +24,7 @@ public class Shop{
     }
   }
 
-    //Find product by name
+  //Find product by name
 
     public int findProduct(String searchText){
       for(Product p : products){
@@ -37,7 +37,7 @@ public class Shop{
    }
      
 
-     //Find product by ID
+  //Find product by ID
 
      public void addToCart(int answer){
       boolean added=false;
@@ -54,7 +54,7 @@ public class Shop{
      System.out.println(added?ifAdded:"That item ID is invalid and could not be added to the cart.");
     }
 
-         //show details
+  //show details
          public void showCartDetails(){
           cart.showDetails();
          }
